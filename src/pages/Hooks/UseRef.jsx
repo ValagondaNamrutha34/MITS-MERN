@@ -1,27 +1,32 @@
-import React, { useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 
-const UseRefExample = () => {
-  const inputRef = useRef(null); // create reference
+const UseRef = () => {
+  const [count, setCount] = useState(0);
+  const value = useRef(0); // { current: 0 }
+  const inputRef=useRef();
+  useEffect(()=>{
+    setTimeout(()=>{
+      setCount(count+1)
+    },2000)
+  },[count])
 
-  const handleFocus = () => {
-    // access the already referenced element
+  useEffect(() => {
+    value.current = value.current + 1;
+  });
+  const handleClick=()=>{
     inputRef.current.focus();
-  };
-
-  const handleValue = () => {
-    alert(inputRef.current.value);
-  };
-
+  }
   return (
     <div>
-      <input ref={inputRef} type="text" placeholder="Enter text" />
+      <h1>{count}</h1>
 
-      <br /><br />
+      <button onClick={() => setCount(count + 1)}>Inc</button>
 
-      <button onClick={handleFocus}>Focus Input</button>
-      <button onClick={handleValue}>Show Value</button>
-    </div>
+      <p>{value.current} times component rendered</p>
+      <input type="text" ref={inputRef}/>
+      <button onClick={handleClick}>submit</button>
+          </div>
   );
 };
 
-export default UseRefExample;
+export default UseRef;
