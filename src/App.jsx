@@ -6,17 +6,17 @@ import Service from "./pages/Service";
 
 import { Route, Routes } from "react-router-dom";
 
-import UseState from "./pages/Hooks/UseState";   
-import Hook from "./pages/Hooks/Hook";          
+import UseState from "./pages/Hooks/UseState";
+import Hook from "./pages/Hooks/Hook";
 
 import Login from "./Auth/Login";
+import Signup from "./Auth/Signup";
+
 import UseEffect from "./pages/Hooks/UseEffect";
 import UseEffectApi from "./pages/Hooks/UseEffectApi";
-
+import UseRef from "./pages/Hooks/UseRef";
 
 const App = () => {
-  const element = <h1>Hello</h1>;
-
   return (
     <>
       <Navbar />
@@ -36,14 +36,19 @@ const App = () => {
         <Route path="/hook" element={<Hook />} />
 
         <Route path="/login" element={<Login />} />
-        <Route path='/useEffect' element={<UseEffect/>}/>
-        <Route path='/useEffectApi' element={<UseEffectApi/>}/>
+        <Route path="/signup" element={<Signup />} />
+
+        <Route path="/useEffect" element={<UseEffect />} />
+        <Route path="/useEffectApi" element={<UseEffectApi />} />
+        <Route path="/useRef" element={<UseRef />} />
+
       </Routes>
     </>
   );
 };
 
 export default App;
+
 
 
 
