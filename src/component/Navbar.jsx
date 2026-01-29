@@ -36,10 +36,9 @@ const Navbar = (props) => {
           <li>
             <Link className="link" to="/signup">Signup</Link>
           </li>
-
-          <li>
-            <Link className="link" to="/useref">UseRef</Link>
-          </li>
+          
+          
+          
         </ul>
       </nav>
     </div>
