@@ -1,21 +1,18 @@
-const express = require("express")
-const todoRoute = require("./router/todoRouter")
-const dotenv = require("dotenv");
-const userRoute = require("./router/userRouter");
-const connectDB = require("./config/db")
-const cors =require("cors")
+const express = require("express");
+const cors = require("cors");
+require("dotenv").config();
 
-dotenv.config();
 const app = express();
+
 app.use(cors());
-connectDB();
+app.use(express.json());
 
-app.use(express.json())
-app.use("/api/todo", todoRoute);
-app.use("/api/user",userRoute)
-const PORT = process.env.PORT;
+app.get("/", (req, res) => {
+  res.send("Backend is running 🚀");
+});
 
-app.listen(PORT,()=>{
-    console.log(`Server running on port http://localhost:${PORT}`);
-    
-})
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
